@@ -1,0 +1,25 @@
+# WSQ assessment materials (confidential — never pushed)
+/assessment/
+/assessment\ /
+
+# Source material the project was derived from — not ours to republish.
+**/reference/
+# ...but keep skill reference implementations, which are working code
+!.claude/skills/**/reference/
+!.claude/skills/**/reference/**
+
+# Distribution archives (rebuildable — never pushed to GitHub)
+*.zip
+
+# Generated courseware binaries — large, rebuildable from the content module.
+# The 94MB deck and its PDF are distributed via Google Drive / the LMS, not git.
+courseware/*.pptx
+courseware/*.pdf
+courseware/*.docx
+courseware/archive/
+
+# OS / editor / Python cruft
+.DS_Store
+__pycache__/
+*.py[cod]
+.playwright-mcp/
