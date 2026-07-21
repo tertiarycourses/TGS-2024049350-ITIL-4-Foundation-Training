@@ -1,31 +1,52 @@
-"""Domain 5 activities — ITIL Practices."""
+"""Domain 5 activities — the in-class labs for this topic.
+
+These mirror labs/lab-NN-*.md exactly. The Case Study assessment uses the same
+BrightDesk Services scenario, so learners are assessed on what they practised.
+"""
 
 DOMAIN5 = [
     dict(
         num=5,
         topic=5,
-        title="Group Activity: Triaging Incidents, Problems, Changes and Service Requests",
-        objective="LO5 (K5, K6, A7, A8) — Describe the purpose of the key ITIL practices and apply them to real scenarios.",
-        desc=(
-            "The most common practical error at Foundation level is misclassifying work: logging a "
-            "service request as an incident, treating a recurring incident as a series of unrelated "
-            "incidents rather than a problem, or pushing an undocumented change straight into "
-            "production. In this activity groups triage a set of realistic scenarios, decide which "
-            "practice owns each one, and justify the decision — then design the handling path."
-        ),
-        build="A triaged scenario set with the owning practice identified for each, plus a handling path for the most complex scenario.",
-        services="ITIL 4 Foundation slides, Learner Guide, practice definitions",
-        steps=[
-            ("Divide the class into 2-4 small groups, each with 2-3 persons.", ""),
-            ("Scenario A: A user calls the service desk because they cannot access the shared drive. No one else is affected. Which practice owns this, and why?", ""),
-            ("Scenario B: The shared drive has failed four times this month, each time restored by a restart. Which practice owns this, and how does it differ from Scenario A?", ""),
-            ("Scenario C: A new employee needs a laptop, an email account and access to the CRM. Which practice owns this, and why is it not an incident?", ""),
-            ("Scenario D: The infrastructure team wants to apply an urgent security patch to the production database this evening. Which practice owns this, and what change type applies?", ""),
-            ("Scenario E: The business complains that the service desk 'never resolves anything on time', but no target has ever been agreed. Which practice owns this, and what artefact is missing?", ""),
-            ("For each scenario, state the practice, its purpose in your own words, and the key term that determines the classification (incident, problem, known error, workaround, service request, change, SLA).", ""),
-            ("Select the most complex scenario and design its end-to-end handling path, naming every practice it touches from initial contact to closure.", ""),
-            ("Present your triage decisions to the class and defend any the other groups classified differently.", ""),
-        ],
-        test="Your group can correctly classify all five scenarios and explain the distinguishing test between an incident and a problem, and between a service request and an incident.",
+        title='Lab 5 — Incident, Problem, Service Request, Service Desk',
+        objective='See labs/lab-05 — maps to Topic 5.',
+        desc="Triage a morning's BrightDesk contacts: classify each as an incident, problem, known error or service request, justify the classification, and design the handling path.",
+        build='The completed lab worksheet for this activity.',
+        services='Lab worksheet, ITIL 4 Foundation slides, Learner Guide',
+        steps=[('Work through labs/lab-05 in your group, completing every step and table.', '')],
+        test='Your group can justify every classification and mapping it recorded.',
+    ),
+    dict(
+        num=6,
+        topic=5,
+        title='Lab 6 — Change Enablement, Release and Deployment',
+        objective='See labs/lab-06 — maps to Topic 5.',
+        desc='Classify BrightDesk changes as standard, normal or emergency; assign the right change authority; and distinguish deployment from release.',
+        build='The completed lab worksheet for this activity.',
+        services='Lab worksheet, ITIL 4 Foundation slides, Learner Guide',
+        steps=[('Work through labs/lab-06 in your group, completing every step and table.', '')],
+        test='Your group can justify every classification and mapping it recorded.',
+    ),
+    dict(
+        num=7,
+        topic=5,
+        title='Lab 7 — Service Level Management, Continual Improvement and Metrics',
+        objective='See labs/lab-07 — maps to Topic 5.',
+        desc='Write business-based SLA targets for the BrightDesk service, avoid the watermelon SLA, and run the seven-step continual improvement model against a real shortfall.',
+        build='The completed lab worksheet for this activity.',
+        services='Lab worksheet, ITIL 4 Foundation slides, Learner Guide',
+        steps=[('Work through labs/lab-07 in your group, completing every step and table.', '')],
+        test='Your group can justify every classification and mapping it recorded.',
+    ),
+    dict(
+        num=8,
+        topic=5,
+        title='Lab 8 — ITIL Capstone and Exam Readiness',
+        objective='See labs/lab-08 — maps to Topic 5.',
+        desc='Bring the whole course together on the BrightDesk improvement case, then work exam-style questions across all five topics.',
+        build='The completed lab worksheet for this activity.',
+        services='Lab worksheet, ITIL 4 Foundation slides, Learner Guide',
+        steps=[('Work through labs/lab-08 in your group, completing every step and table.', '')],
+        test='Your group can justify every classification and mapping it recorded.',
     ),
 ]

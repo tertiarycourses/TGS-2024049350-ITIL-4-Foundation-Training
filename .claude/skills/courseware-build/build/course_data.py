@@ -184,7 +184,7 @@ SCHEDULE = {
     ("11:15","13:00",105,"topic","Topic 5 — ITIL Practices: practice groups; continual improvement, information security, relationship and supplier management"),
     ("13:00","14:00",60,"lunch","Lunch break"),
     ("14:00","15:00",60,"topic","Topic 5 (continued) — change enablement, incident management, problem management, service request management, service desk and service level management"),
-    ("15:00","16:00",60,"lab","Hands-on: {lab5}"),
+    ("15:00","16:00",60,"lab","Hands-on: {lab5}; {lab6}; {lab7}; {lab8}"),
     ("16:00","16:15",15,"break","Tea break"),
     # The WA and the Case Study are ONE HOUR EACH — this must match the duration
     # printed on the question papers (and the TMS originals they mirror).

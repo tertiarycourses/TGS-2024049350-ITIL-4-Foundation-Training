@@ -9,15 +9,18 @@
 - [Skills Framework Alignment](#skills-framework-alignment)
 - [Before You Start](#before-you-start)
 - [Topic 01 — Understand Key Concepts of Service Management  (25%)](#topic-01--understand-key-concepts-of-service-management--25)
-  - [Activity 1 — Case Study: MediCare Health Group — Scenario Analysis from an ITIL Context](#activity-1--case-study-medicare-health-group--scenario-analysis-from-an-itil-context)
+  - [Activity 1 — Lab 1 — Service Management, Value Co-Creation, Utility and Warranty](#activity-1--lab-1--service-management-value-co-creation-utility-and-warranty)
 - [Topic 02 — ITIL Guiding Principles  (20%)](#topic-02--itil-guiding-principles--20)
-  - [Activity 2 — Group Activity: Applying an ITIL Guiding Principle in Your Organisation](#activity-2--group-activity-applying-an-itil-guiding-principle-in-your-organisation)
+  - [Activity 2 — Lab 2 — Seven Guiding Principles and Decision Scenarios](#activity-2--lab-2--seven-guiding-principles-and-decision-scenarios)
 - [Topic 03 — The Four Dimensions of Service Management  (15%)](#topic-03--the-four-dimensions-of-service-management--15)
-  - [Activity 3 — Group Activity: Analysing a Service Across the Four Dimensions](#activity-3--group-activity-analysing-a-service-across-the-four-dimensions)
+  - [Activity 3 — Lab 3 — Four Dimensions of Service Management](#activity-3--lab-3--four-dimensions-of-service-management)
 - [Topic 04 — The Service Value System  (20%)](#topic-04--the-service-value-system--20)
-  - [Activity 4 — Group Activity: Service Value Chain Inputs and Outputs](#activity-4--group-activity-service-value-chain-inputs-and-outputs)
+  - [Activity 4 — Lab 4 — Service Value System and Service Value Chain](#activity-4--lab-4--service-value-system-and-service-value-chain)
 - [Topic 05 — ITIL Practices  (20%)](#topic-05--itil-practices--20)
-  - [Activity 5 — Group Activity: Triaging Incidents, Problems, Changes and Service Requests](#activity-5--group-activity-triaging-incidents-problems-changes-and-service-requests)
+  - [Activity 5 — Lab 5 — Incident, Problem, Service Request, Service Desk](#activity-5--lab-5--incident-problem-service-request-service-desk)
+  - [Activity 6 — Lab 6 — Change Enablement, Release and Deployment](#activity-6--lab-6--change-enablement-release-and-deployment)
+  - [Activity 7 — Lab 7 — Service Level Management, Continual Improvement and Metrics](#activity-7--lab-7--service-level-management-continual-improvement-and-metrics)
+  - [Activity 8 — Lab 8 — ITIL Capstone and Exam Readiness](#activity-8--lab-8--itil-capstone-and-exam-readiness)
 - [Key Distinctions to Master](#key-distinctions-to-master)
 - [Quick Reference — The Seven Guiding Principles](#quick-reference--the-seven-guiding-principles)
 - [Quick Reference — The Six Service Value Chain Activities](#quick-reference--the-six-service-value-chain-activities)
@@ -27,7 +30,7 @@
 
 ## Introduction
 
-This Learner Guide accompanies the WSQ course ITIL 4 Foundation Training (TGS-2024049350), conducted by Tertiary Infotech Academy Pte Ltd. It provides step-by-step instructions for all 5 in-class activities, organised by the 5 course topics. Every activity maps to a learning outcome and to the Skills Framework TSC Infrastructure Support (ICT-OUS-3007-1.1).
+This Learner Guide accompanies the WSQ course ITIL 4 Foundation Training (TGS-2024049350), conducted by Tertiary Infotech Academy Pte Ltd. It provides step-by-step instructions for all 8 in-class activities, organised by the 5 course topics. Every activity maps to a learning outcome and to the Skills Framework TSC Infrastructure Support (ICT-OUS-3007-1.1).
 
 Use this guide alongside the course slides and the in-class group activities. ITIL 4 Foundation is a knowledge-based course: the activities are group discussions, case-study analyses and scenario triage exercises rather than software labs, so the value comes from working through the reasoning with your group and defending your conclusions to the class.
 
@@ -100,29 +103,23 @@ Services · Value · Outcomes, Costs and Risks · Providers and Consumers · Uti
 - Utility is what the service does (fit for purpose); warranty is how the service performs (fit for use).
 
 
-### Activity 1 — Case Study: MediCare Health Group — Scenario Analysis from an ITIL Context
+### Activity 1 — Lab 1 — Service Management, Value Co-Creation, Utility and Warranty
 
-Learning outcome: LO1 (K1, A1) — Explain services, value, outcomes, costs, risks and the roles of service providers and consumers.
+Learning outcome: See labs/lab-01 — maps to Topic 1.
 
-Goal: MediCare Health Group, established in 1995, operates a network of private clinics and two specialist medical centres across Southeast Asia, employing more than 8,000 clinical and administrative staff across Singapore, Malaysia, Thailand, Indonesia, Vietnam and the Philippines. Rising middle-class incomes, greater health awareness, government subsidies for preventive screening and widespread smartphone adoption have created strong demand for private healthcare. MediCare has launched Essential, Advanced and Executive health screening packages, each bundling diagnostic tests, a digital health report, teleconsultation and a period of access to its online patient portal. Results are promised within 5 business days, backed by a 24x7 support hotline and a portal chatbot that escalates to a human officer. As the group expands, the IT Director has been asked to evaluate a service management solution that will give better insight into patient outcomes, service performance and clinic utilisation. Working in small groups of 2-3, analyse this scenario through an ITIL lens.
+Goal: Work the BrightDesk Employee Digital Workplace scenario: identify the service, provider, consumer and users; separate outputs from outcomes; define utility and warranty; and map the costs and risks the service imposes on and removes from the consumer.
 
 **What you'll produce**
 
-A completed group analysis identifying opportunity, value, external factors, the service offering components and the selection criteria for a service management solution.   (Materials: Case study brief, ITIL 4 Foundation slides, Learner Guide.)
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
 
 **Step-by-step**
 
-1. Divide the class into 2-4 small groups, each with 2-3 persons, and read the MediCare Health Group scenario in full.
-2. Question 1: List examples of opportunity and value in the scenario. Distinguish the opportunity MediCare is pursuing from the value co-created for its patients.
-3. Question 2: Identify the external factors MediCare is leveraging. Use PESTLE (political, economic, social, technological, legal, environmental) to structure your answer.
-4. Question 3: Identify the goods, the access to resources and the service actions that make up the health screening service offering. Apply the ownership test to each.
-5. Question 4: Determine the consideration factors the IT Director should apply when evaluating a service management solution. Structure them using the four dimensions of service management.
-6. Document any assumptions your group made — market conditions, patient behaviours or technological capabilities available to MediCare.
-7. Each group presents its findings to the class, clearly justifying its answers and stating its assumptions.
+1. Work through labs/lab-01 in your group, completing every step and table.
 
 **Check your work**
 
-Your group can justify, for each of the four questions, which ITIL concept it applied and why — and can defend its assumptions when challenged by another group.
+Your group can justify every classification and mapping it recorded.
 
 ---
 
@@ -141,29 +138,23 @@ Focus on Value · Start Where You Are · Progress Iteratively · Collaborate · 
 - Think and work holistically, keep it simple and practical, and optimize before you automate.
 
 
-### Activity 2 — Group Activity: Applying an ITIL Guiding Principle in Your Organisation
+### Activity 2 — Lab 2 — Seven Guiding Principles and Decision Scenarios
 
-Learning outcome: LO2 (K2, A2) — Apply the seven ITIL guiding principles to service management decisions and improvement initiatives.
+Learning outcome: See labs/lab-02 — maps to Topic 2.
 
-Goal: The seven ITIL guiding principles are recommendations that hold in all circumstances, regardless of changes to an organisation's goals, strategies or type of work. Knowing the principles is not the same as being able to apply them. In this activity each group selects one guiding principle and works it through against a real situation from a member's own workplace, producing a concrete application rather than a restatement of the definition.
+Goal: Apply each of the seven guiding principles to a set of BrightDesk decision scenarios, stating what the principle would have you do — and stop doing — in each case.
 
 **What you'll produce**
 
-A worked application of one guiding principle to a real workplace situation, with the specific actions it implies.   (Materials: ITIL 4 Foundation slides, Learner Guide, workplace examples from group members.)
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
 
 **Step-by-step**
 
-1. Divide the class into 2-4 small groups, each with 2-3 persons.
-2. As a group, select ONE of the seven guiding principles: focus on value, start where you are, progress iteratively with feedback, collaborate and promote visibility, think and work holistically, keep it simple and practical, or optimize and automate.
-3. Have each member briefly describe a current situation or improvement initiative in their own organisation. Choose one to work with.
-4. State the principle in your own words, then explain specifically how it applies to the chosen situation.
-5. List the concrete actions the principle would lead you to take — and, just as importantly, the actions it would lead you to STOP taking.
-6. Identify what would be at risk if the principle were ignored in this situation.
-7. Present your analysis to the class and take questions.
+1. Work through labs/lab-02 in your group, completing every step and table.
 
 **Check your work**
 
-Your group can explain how the selected principle changes what you would actually do in the chosen situation — not merely restate its definition.
+Your group can justify every classification and mapping it recorded.
 
 ---
 
@@ -182,31 +173,23 @@ Organizations and People · Information and Technology · Partners and Suppliers
 - External factors — political, economic, social, technological, legal and environmental (PESTLE) — constrain and shape all four dimensions.
 
 
-### Activity 3 — Group Activity: Analysing a Service Across the Four Dimensions
+### Activity 3 — Lab 3 — Four Dimensions of Service Management
 
-Learning outcome: LO3 (K3, A3, A4) — Describe the four dimensions of service management and evaluate how each affects service delivery.
+Learning outcome: See labs/lab-03 — maps to Topic 3.
 
-Goal: ITIL 4 requires a holistic approach: every component of the service value system must be considered from all four dimensions — organizations and people, information and technology, partners and suppliers, and value streams and processes. Neglecting a dimension is a common cause of service failure. In this activity groups take a familiar service and work it through all four dimensions, then identify which dimension is weakest and what that costs.
+Goal: Analyse the BrightDesk service across organizations and people, information and technology, partners and suppliers, and value streams and processes; apply PESTLE to the external factors; and identify the weakest dimension.
 
 **What you'll produce**
 
-A four-dimension analysis of a real service, with the weakest dimension identified and justified.   (Materials: ITIL 4 Foundation slides, Learner Guide, PESTLE framework.)
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
 
 **Step-by-step**
 
-1. Divide the class into 2-4 small groups, each with 2-3 persons.
-2. Select a service your group knows well — a corporate IT service desk, an email service, a cloud hosting service or a service from a member's workplace.
-3. Organizations and people: identify the roles, responsibilities, structures, culture and competencies the service depends on.
-4. Information and technology: identify the information and knowledge required, and the technologies that support and enable the service.
-5. Partners and suppliers: identify the external organisations involved in designing, deploying, delivering or supporting the service, and the dependencies they create.
-6. Value streams and processes: map at a high level how the parts of the organisation work together to deliver the service end to end.
-7. Apply PESTLE to identify the external factors that constrain the service across the dimensions.
-8. Decide which of the four dimensions is currently weakest for this service, and explain the specific impact that weakness has on the value delivered.
-9. Present your analysis to the class.
+1. Work through labs/lab-03 in your group, completing every step and table.
 
 **Check your work**
 
-Your group can name the weakest dimension for the chosen service and trace a concrete service failure or risk directly back to it.
+Your group can justify every classification and mapping it recorded.
 
 ---
 
@@ -225,30 +208,23 @@ ITIL SVS · Plan · Improve · Engage · Design and Transition · Obtain/Build �
 - The continual improvement model runs from 'What is the vision?' through to 'How do we keep the momentum going?' in seven steps.
 
 
-### Activity 4 — Group Activity: Service Value Chain Inputs and Outputs
+### Activity 4 — Lab 4 — Service Value System and Service Value Chain
 
-Learning outcome: LO4 (K4, A5, A6) — Explain the ITIL service value system and the six service value chain activities.
+Learning outcome: See labs/lab-04 — maps to Topic 4.
 
-Goal: The service value chain is a set of six interconnected activities an organisation performs to deliver a valuable product or service to its consumers. Each activity converts inputs into outputs, and the outputs of one activity commonly become the inputs of another — which is what makes the chain a system rather than a sequence. In this activity groups work through three of the six activities in detail, tracing what flows in and what flows out.
+Goal: Map the BrightDesk SVS: identify opportunity and demand as inputs, then trace a request through the six value chain activities, listing the inputs and outputs of each.
 
 **What you'll produce**
 
-Completed input/output tables for the 'Deliver and Support', 'Engage' and 'Design and Transition' value chain activities, with explanations.   (Materials: ITIL 4 Foundation slides, Learner Guide, service value chain diagram.)
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
 
 **Step-by-step**
 
-1. Divide the class into 2-4 small groups, each with 2-3 persons.
-2. Review the service value chain diagram and confirm the six activities: plan, improve, engage, design and transition, obtain/build, and deliver and support.
-3. For the 'Deliver and Support' activity, list the possible inputs and their corresponding outputs in a table.
-4. For the 'Engage' activity, list the possible inputs and their corresponding outputs in a table.
-5. For the 'Design and Transition' activity, list the possible inputs and their corresponding outputs in a table.
-6. Explain each answer: why is that an input to this activity, and where does the output flow to next?
-7. Trace at least one output from one of your three activities to the activity that consumes it as an input, demonstrating the interconnection.
-8. Present your tables and explanations to the class.
+1. Work through labs/lab-04 in your group, completing every step and table.
 
 **Check your work**
 
-Your group can trace a complete path through the value chain — showing an output of one activity becoming the input of another — and explain why the chain is a system, not a linear process.
+Your group can justify every classification and mapping it recorded.
 
 ---
 
@@ -267,31 +243,86 @@ Continual Improvement · Change Enablement · Incident · Problem · Service Req
 - Service level management sets clear business-based targets for service performance, documented in service level agreements (SLAs).
 
 
-### Activity 5 — Group Activity: Triaging Incidents, Problems, Changes and Service Requests
+### Activity 5 — Lab 5 — Incident, Problem, Service Request, Service Desk
 
-Learning outcome: LO5 (K5, K6, A7, A8) — Describe the purpose of the key ITIL practices and apply them to real scenarios.
+Learning outcome: See labs/lab-05 — maps to Topic 5.
 
-Goal: The most common practical error at Foundation level is misclassifying work: logging a service request as an incident, treating a recurring incident as a series of unrelated incidents rather than a problem, or pushing an undocumented change straight into production. In this activity groups triage a set of realistic scenarios, decide which practice owns each one, and justify the decision — then design the handling path.
+Goal: Triage a morning's BrightDesk contacts: classify each as an incident, problem, known error or service request, justify the classification, and design the handling path.
 
 **What you'll produce**
 
-A triaged scenario set with the owning practice identified for each, plus a handling path for the most complex scenario.   (Materials: ITIL 4 Foundation slides, Learner Guide, practice definitions.)
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
 
 **Step-by-step**
 
-1. Divide the class into 2-4 small groups, each with 2-3 persons.
-2. Scenario A: A user calls the service desk because they cannot access the shared drive. No one else is affected. Which practice owns this, and why?
-3. Scenario B: The shared drive has failed four times this month, each time restored by a restart. Which practice owns this, and how does it differ from Scenario A?
-4. Scenario C: A new employee needs a laptop, an email account and access to the CRM. Which practice owns this, and why is it not an incident?
-5. Scenario D: The infrastructure team wants to apply an urgent security patch to the production database this evening. Which practice owns this, and what change type applies?
-6. Scenario E: The business complains that the service desk 'never resolves anything on time', but no target has ever been agreed. Which practice owns this, and what artefact is missing?
-7. For each scenario, state the practice, its purpose in your own words, and the key term that determines the classification (incident, problem, known error, workaround, service request, change, SLA).
-8. Select the most complex scenario and design its end-to-end handling path, naming every practice it touches from initial contact to closure.
-9. Present your triage decisions to the class and defend any the other groups classified differently.
+1. Work through labs/lab-05 in your group, completing every step and table.
 
 **Check your work**
 
-Your group can correctly classify all five scenarios and explain the distinguishing test between an incident and a problem, and between a service request and an incident.
+Your group can justify every classification and mapping it recorded.
+
+---
+
+
+### Activity 6 — Lab 6 — Change Enablement, Release and Deployment
+
+Learning outcome: See labs/lab-06 — maps to Topic 5.
+
+Goal: Classify BrightDesk changes as standard, normal or emergency; assign the right change authority; and distinguish deployment from release.
+
+**What you'll produce**
+
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
+
+**Step-by-step**
+
+1. Work through labs/lab-06 in your group, completing every step and table.
+
+**Check your work**
+
+Your group can justify every classification and mapping it recorded.
+
+---
+
+
+### Activity 7 — Lab 7 — Service Level Management, Continual Improvement and Metrics
+
+Learning outcome: See labs/lab-07 — maps to Topic 5.
+
+Goal: Write business-based SLA targets for the BrightDesk service, avoid the watermelon SLA, and run the seven-step continual improvement model against a real shortfall.
+
+**What you'll produce**
+
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
+
+**Step-by-step**
+
+1. Work through labs/lab-07 in your group, completing every step and table.
+
+**Check your work**
+
+Your group can justify every classification and mapping it recorded.
+
+---
+
+
+### Activity 8 — Lab 8 — ITIL Capstone and Exam Readiness
+
+Learning outcome: See labs/lab-08 — maps to Topic 5.
+
+Goal: Bring the whole course together on the BrightDesk improvement case, then work exam-style questions across all five topics.
+
+**What you'll produce**
+
+The completed lab worksheet for this activity.   (Materials: Lab worksheet, ITIL 4 Foundation slides, Learner Guide.)
+
+**Step-by-step**
+
+1. Work through labs/lab-08 in your group, completing every step and table.
+
+**Check your work**
+
+Your group can justify every classification and mapping it recorded.
 
 ---
 

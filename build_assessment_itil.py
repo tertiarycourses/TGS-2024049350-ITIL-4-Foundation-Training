@@ -74,6 +74,29 @@ def bullet(d, text):
     return runs(d, [(text, False)], after=3, style="List Bullet")
 
 
+def _hr(d, color="9AA3AF"):
+    """A horizontal rule drawn as a paragraph bottom border.
+
+    A row of underscores wraps when it exceeds the text width, leaving an
+    orphan "______" fragment on the following line. A border cannot wrap.
+    """
+    from docx.oxml.ns import qn
+    from docx.oxml import OxmlElement
+    p = d.add_paragraph()
+    p.paragraph_format.space_before = Pt(10)
+    p.paragraph_format.space_after = Pt(10)
+    pPr = p._p.get_or_add_pPr()
+    borders = OxmlElement("w:pBdr")
+    bottom = OxmlElement("w:bottom")
+    bottom.set(qn("w:val"), "single")
+    bottom.set(qn("w:sz"), "6")
+    bottom.set(qn("w:space"), "1")
+    bottom.set(qn("w:color"), color)
+    borders.append(bottom)
+    pPr.append(borders)
+    return p
+
+
 def cover(d, instrument):
     """Page 1 — WSQ house cover page naming the instrument. No version-control record."""
     if prodoc:
@@ -97,27 +120,40 @@ def admin_page(d, minutes, instrument_short):
 
     line(d, "B: Instructions to Candidate", bold=True, size=12, after=6)
     for t in [
-        "1. This is an individual exercise.",
+        "1. This is an individual exercise. No discussion with other candidates is permitted.",
         "2. This is an open book assessment. Open book includes the course slides, the Learner Guide "
-        "and any approved materials only.",
+        "and any approved materials only. Mobile phones and all other materials must be placed under "
+        "the table or on the floor.",
         f"3. A total of {minutes} is given to complete this {instrument_short}.",
-        "4. Answer all questions in your own words in the space provided.",
-        "5. Submit your answers on the document provided.",
+        "4. Answer ALL questions in your own words in the space provided. Answers copied verbatim "
+        "from the course materials will not be accepted.",
+        "5. Write legibly using a black or blue pen. Do not use liquid paper or correction tape — "
+        "cross out neatly and rewrite instead.",
+        "6. You will be assessed as Competent (C) or Not Yet Competent (NYC). To be assessed as "
+        "Competent you must answer all questions to the required standard.",
+        "7. If you are assessed Not Yet Competent, you are entitled to one re-assessment. An appeal "
+        "process is available if you disagree with the outcome — speak to your trainer or the "
+        "course administrator.",
+        "8. Submit your completed answers on the document provided when time is up.",
     ]:
         line(d, t, after=4)
-    p = d.add_paragraph(); p.paragraph_format.space_after = Pt(14)
-    r = p.add_run("6. Submit your completed answers on the LMS at "); r.font.size = Pt(11); r.font.name = "Arial"
+    p = d.add_paragraph(); p.paragraph_format.space_after = Pt(16)
+    r = p.add_run("9. Upload your completed answers to the LMS at ")
+    r.font.size = Pt(11); r.font.name = "Arial"
     r2 = p.add_run(LMS); r2.font.size = Pt(11); r2.font.name = "Arial"
-    r2.font.color.rgb = BRAND; r2.underline = True
+    r2.font.color.rgb = BRAND; r2.underline = True      # a hyperlink — underlined by design
 
     # House standard: the block is headed "Grading" and lives HERE, on page 2.
     # There is NO "For Official Use Only" block at the back of the paper.
-    line(d, "____________________________________________________________________________",
-         color=GREY, after=6)
-    line(d, "C: Grading", bold=True, size=12, after=6)
-    line(d, "Grade: _____ (C / NYC)", after=8)
-    line(d, "Assessor Name: _______________\t\tAssessor NRIC: _____________", after=8)
-    line(d, "Date: ________________________\t\tSignature: _________________", after=4)
+    # A bottom BORDER separates it — not a row of underscores, which wraps and
+    # leaves an orphan fragment on the next line.
+    _hr(d)
+    line(d, "C: Grading", bold=True, size=12, after=8)
+    line(d, "Grade:            C  /  NYC          (delete as appropriate)", after=10)
+    line(d, "Assessor Name:", after=10)
+    line(d, "Assessor NRIC:", after=10)
+    line(d, "Date:", after=10)
+    line(d, "Assessor Signature:", after=4)
     d.add_page_break()
 
 
@@ -258,69 +294,69 @@ WRITTEN = [
 
 
 # ================================================================ CASE STUDY — 5 Q, A1..A8
-SCENARIO_TITLE = "Scenario: MediCare Health Group"
+# The scenario deliberately uses BrightDesk Services — the SAME organisation as
+# Labs 1-8, which learners work through in class. The answer key cites those labs,
+# so the assessment must test the scenario they actually practised on.
+SCENARIO_TITLE = "Scenario: BrightDesk Services — Employee Digital Workplace"
 SCENARIO = (
-    "Established in 1995, MediCare Health Group operates a network of private clinics and two "
-    "specialist medical centres across Southeast Asia, employing more than 8,000 clinical and "
-    "administrative staff. It has been consistently ranked among the region's top healthcare providers "
-    "for patient safety and service quality."
+    "BrightDesk Services provides an Employee Digital Workplace service to a group of corporate "
+    "clients across Singapore and the region. Around 12,000 end users at those clients rely on it "
+    "every working day for laptops, email, chat, file sharing, and access to HR and finance "
+    "applications. BrightDesk employs about 400 staff across its service desk, infrastructure, "
+    "applications and client-management teams."
 )
 SCENARIO_POINTS = [
-    "MediCare's key markets are Singapore, Malaysia, Thailand, Indonesia, Vietnam and the Philippines, "
-    "with more than 150 clinics and 2 specialist medical centres across the region.",
-    "Core services span general practice, specialist consultation, diagnostic imaging, laboratory "
-    "services, health screening and corporate health programmes for employer clients.",
-    "Over the past five years, rising middle-class incomes and increased health awareness across the "
-    "region have driven strong demand for private healthcare and preventive health screening.",
-    "Governments in several of MediCare's markets have introduced subsidies and tax incentives for "
-    "preventive health screening, and have relaxed restrictions on private healthcare investment.",
-    "Widespread smartphone adoption and improved mobile connectivity have made online appointment "
-    "booking and teleconsultation viable across all of MediCare's markets.",
-    "An ageing regional population and a shift from reactive treatment towards preventive care have "
-    "widened the addressable market for scheduled health screening.",
-    "Medical licensing, healthcare regulation and patient data protection requirements differ across "
-    "all six jurisdictions in which MediCare operates.",
-    "Diagnostic capacity is supplied through a mix of in-house laboratories and contracted third-party "
-    "imaging and pathology providers, whose turnaround times MediCare does not directly control.",
+    "The service bundles a managed laptop, a productivity and collaboration suite, identity and "
+    "access management, and a 24x5 service desk with out-of-hours emergency cover.",
+    "Client organisations sign a master agreement; each has its own service level targets, and "
+    "renewals are negotiated annually against BrightDesk's reported performance.",
+    "Demand has grown sharply as client organisations shifted to hybrid working and retired their "
+    "own in-house IT support teams.",
+    "Cloud licensing has moved to per-user subscription, which lets BrightDesk offer a lower entry "
+    "price but exposes it to vendor price changes it does not control.",
+    "Data protection obligations differ by client sector — the financial-services clients impose "
+    "audit and retention requirements the others do not.",
+    "Laptops, imaging and field support are supplied by two contracted third-party providers whose "
+    "turnaround times BrightDesk does not directly control.",
+    "Users repeatedly say that BrightDesk talks about tickets and systems, while what they care "
+    "about is staying productive.",
 ]
 SCENARIO_OFFER_INTRO = (
-    "Seeing the opportunity, MediCare has launched a set of Health Screening packages to compete with "
-    "local providers:"
+    "BrightDesk offers the Employee Digital Workplace in three service tiers:"
 )
 SCENARIO_TABLE = [
-    ("Package", "Price (US$)", "Inclusions", "Additional Services"),
-    ("Essential", "150 – 400",
-     "Basic blood panel, ECG, chest X-ray; digital health report",
-     "Complimentary follow-up teleconsultation; 12 months' access to the patient portal"),
-    ("Advanced", "401 – 900",
-     "Essential package plus ultrasound, cardiac stress test; digital health report",
-     "Complimentary follow-up teleconsultation; 18 months' portal access; dedicated care coordinator"),
-    ("Executive", "901 and above",
-     "Advanced package plus MRI screening, full cancer marker panel; digital health report",
-     "Complimentary specialist consultation; 24 months' portal access; dedicated care coordinator; "
-     "priority appointment booking"),
+    ("Tier", "Price (S$/user/month)", "Inclusions", "Additional Services"),
+    ("Standard", "35 – 55",
+     "Managed laptop; email, chat and file sharing; service desk 9am–6pm",
+     "Self-service portal and knowledge base; next-business-day hardware replacement"),
+    ("Professional", "56 – 95",
+     "Standard tier plus HR and finance application support; service desk 24x5",
+     "Named service delivery contact; quarterly service review; 4-hour hardware replacement"),
+    ("Enterprise", "96 and above",
+     "Professional tier plus identity and access management, and security monitoring",
+     "Dedicated service delivery manager; monthly service review; on-site engineer; "
+     "priority incident handling"),
 ]
 SCENARIO_TAIL = (
-    "All screening results are released within 5 business days of the appointment. If patients do not "
-    "receive their results within this period, they can contact the 24x7 patient support hotline. "
-    "MediCare also provides an online patient portal with a chatbot that escalates to a human patient "
-    "support officer when it cannot resolve the query.\n\n"
-    "The screening service depends on several supporting systems: an appointment booking platform, an "
-    "electronic medical records system shared across the clinics, a laboratory information system, and "
-    "the patient portal itself. These were introduced at different times and are only partly "
-    "integrated — a patient's booking, results and follow-up consultation are currently reconciled "
-    "manually by clinic administrators. Contracted third-party imaging and pathology providers return "
-    "results by secure email, which staff then upload to the records system.\n\n"
-    "Over the last two quarters the service desk has recorded a rising number of calls about results "
-    "released later than the 5-day commitment. Most are resolved by chasing the laboratory or the "
-    "external provider directly. No one has yet established why the delays recur, and the same "
-    "categories of call keep returning. Clinic managers report that they cannot see, at any point in "
-    "the week, how many screenings are booked against available diagnostic capacity.\n\n"
-    "As MediCare expands its services, there is a growing need for better insight into patient "
-    "outcomes, service performance and clinic utilisation. This would allow the group to direct its "
-    "resources to where patient demand is greatest, and to hold both internal teams and external "
-    "providers to agreed service levels. The IT Director has been tasked with evaluating a service "
-    "management solution to address this need."
+    "Every tier commits to acknowledging a request within 4 working hours. If a user hears nothing "
+    "within that window they can call the service desk hotline or use the self-service portal, whose "
+    "chatbot escalates to a human agent when it cannot resolve the query.\n\n"
+    "The service depends on several supporting systems: an IT service management tool holding "
+    "tickets, a device management platform, an identity provider, and the self-service portal "
+    "itself. These were introduced at different times and are only partly integrated — a user's "
+    "ticket, device record and access rights are currently reconciled by hand when anything "
+    "unusual happens. The two contracted hardware providers send delivery confirmations by email, "
+    "which service desk staff re-key into the ticketing tool.\n\n"
+    "Over the last two quarters the service desk has recorded a rising number of contacts about "
+    "requests acknowledged later than the 4-hour commitment. Most are resolved by chasing an "
+    "engineer or a supplier directly. Nobody has yet established why the delays recur, and the same "
+    "categories of contact keep returning. Team leads report that they cannot see, at any point in "
+    "the week, how much work is open against the capacity available to clear it.\n\n"
+    "As BrightDesk takes on more clients, there is a growing need for better insight into user "
+    "outcomes, service performance and team utilisation. This would let the company direct its "
+    "resources to where demand is greatest, and hold both internal teams and external suppliers to "
+    "agreed service levels. The IT Director has been tasked with evaluating a service management "
+    "solution to address this need."
 )
 
 # (label, codes, prompt, answer_lines)
@@ -329,13 +365,13 @@ CS_Q = [
      "Based on the scenario above, what are examples of opportunity and value from an ITIL context? "
      "Identify each clearly and explain the difference between them.", 8),
     ("Question 2", "A2",
-     "From an ITIL context, identify and explain the external factors that MediCare is leveraging to "
-     "offer its health screening services to consumers.", 8),
+     "From an ITIL context, identify and explain the external factors that BrightDesk is leveraging "
+     "to offer its Employee Digital Workplace service to consumers.", 8),
     ("Question 3", "A3, A4",
      "From an ITIL context, identify what is considered the goods, the access to resources and the "
-     "service actions within MediCare's health screening service offering.", 9),
+     "service actions within BrightDesk's Employee Digital Workplace service offering.", 9),
     ("Question 4", "A5, A6",
-     "If you were MediCare's IT Director, what consideration factors would you use to evaluate the "
+     "If you were BrightDesk's IT Director, what consideration factors would you use to evaluate the "
      "service management solution? Justify your factors.", 9),
     ("Question 5", "A7, A8",
      "State the assumptions you made to justify your answers above, and explain how you would present "
@@ -344,91 +380,91 @@ CS_Q = [
 
 # (label, codes, activity_ref, [model points])
 CS_A = [
-    ("Question 1", "A1", "Lab 1 (labs/lab-01) — Case Study: MediCare Health Group (Topic 1)", [
+    ("Question 1", "A1", "Lab 1 — Service Management, Value Co-Creation, Utility and Warranty (Topic 1)", [
         "OPPORTUNITY — options or possibilities to add value for stakeholders, or otherwise improve the "
-        "organisation. In this scenario: rising middle-class incomes and health awareness across the "
-        "region; government subsidies and tax incentives for preventive screening; relaxed restrictions "
-        "on private healthcare investment; smartphone adoption making online booking and teleconsultation "
-        "viable; the unmet demand for preventive health screening.",
+        "organisation. In this scenario: the shift to hybrid working; client organisations retiring "
+        "their own in-house IT support teams; per-user cloud subscription licensing allowing a lower "
+        "entry price; the chance to win new corporate clients as demand grows.",
         "Opportunity and demand are the INPUTS to the ITIL service value system — they trigger the "
         "activities that lead to the creation of value.",
         "VALUE — the perceived benefits, usefulness and importance of something. Value is co-created "
-        "between MediCare and its patients, not delivered one way.",
-        "Value to the patient: early detection of health conditions; convenience (online booking, "
-        "teleconsultation, results within 5 business days); reassurance; continuity of care through the "
-        "portal and care coordinator; reduced risk of undetected illness.",
-        "Value to MediCare: new revenue streams; patient loyalty and repeat screening; market share "
-        "against local providers; richer patient data for service improvement.",
+        "between BrightDesk and its client organisations and their users, not delivered one way.",
+        "Value to the user and the client: staying productive; a working laptop and access on day one; "
+        "requests acknowledged within 4 working hours; no need to run an in-house IT support team; "
+        "predictable per-user cost.",
+        "Value to BrightDesk: recurring subscription revenue; annual renewals; client retention; "
+        "richer service data with which to improve the service.",
         "KEY DISTINCTION the candidate must show: an opportunity is a possibility the organisation may "
         "pursue; value is the benefit actually co-created once it does. Award the mark where both are "
         "identified AND distinguished.",
     ]),
-    ("Question 2", "A2", "Lab 1 (labs/lab-01) and Lab 3 (labs/lab-03) — PESTLE / four dimensions (Topics 1, 3)", [
+    ("Question 2", "A2", "Lab 3 — Four Dimensions of Service Management, incl. PESTLE (Topic 3)", [
         "External factors are addressed in ITIL 4 with PESTLE — political, economic, social, "
         "technological, legal and environmental. Service providers do not operate in isolation.",
-        "POLITICAL — governments in several markets have relaxed restrictions on private healthcare "
-        "investment, enabling MediCare's regional expansion.",
-        "ECONOMIC — rising middle-class incomes and greater purchasing power across the region have "
-        "increased demand for private healthcare; government subsidies and tax incentives for preventive "
-        "screening directly improve affordability.",
-        "SOCIAL — increased health awareness and a shift towards preventive rather than reactive "
-        "healthcare; an ageing regional population.",
-        "TECHNOLOGICAL — widespread smartphone adoption and improved mobile connectivity make the online "
-        "patient portal, chatbot and teleconsultation viable; diagnostic imaging technology (MRI, "
-        "ultrasound, cardiac stress testing) underpins the packages themselves.",
-        "LEGAL — healthcare regulation, medical licensing and patient data protection requirements "
-        "across six jurisdictions constrain how the service is offered.",
+        "ECONOMIC — client organisations are retiring in-house IT support teams to convert fixed staff "
+        "cost into a predictable per-user charge; per-user cloud subscription licensing lets BrightDesk "
+        "offer a lower entry price, but exposes it to vendor price changes it does not control.",
+        "SOCIAL — the shift to hybrid working has changed where and how users need support, and has "
+        "sharply increased demand for a managed digital workplace.",
+        "TECHNOLOGICAL — cloud productivity suites, device management platforms and identity providers "
+        "make a fully remote managed workplace viable; the self-service portal and chatbot depend on it.",
+        "LEGAL — data protection obligations differ by client sector; the financial-services clients "
+        "impose audit and retention requirements that constrain how the service is delivered.",
+        "Accept POLITICAL and ENVIRONMENTAL factors only where the candidate justifies them from the "
+        "scenario — the scenario does not supply obvious examples of either.",
         "Award the mark for correctly categorising factors and linking each to something concrete in the "
         "scenario. The candidate need not use all six PESTLE categories, but must explain those used.",
     ]),
-    ("Question 3", "A3, A4", "Lab 1 (labs/lab-01) — service offering components (Topic 1)", [
+    ("Question 3", "A3, A4", "Lab 1 — Service Management, Value Co-Creation, Utility and Warranty (Topic 1)", [
         "A SERVICE OFFERING is a formal description of one or more services designed to address the needs "
         "of a target consumer group. It may include goods, access to resources, and service actions.",
         "GOODS — supplied to the consumer; ownership is TRANSFERRED to the consumer, who takes "
-        "responsibility for future use. In this scenario: the digital health report / screening results; "
-        "any physical documentation or take-home materials provided with the screening.",
-        "ACCESS TO RESOURCES — ownership is NOT transferred; access is granted or licensed to the "
-        "consumer under agreed terms and conditions. In this scenario: 12/18/24 months' access to the "
-        "patient portal; access to the 24x7 patient support hotline; access to the online chatbot; "
-        "priority appointment booking (Executive); access to diagnostic facilities during the screening.",
+        "responsibility for future use. In this scenario: any hardware or accessories transferred "
+        "outright to the client. Note the managed laptop is arguably NOT goods — it remains "
+        "BrightDesk's asset and is returned; credit either reading if the candidate justifies it.",
+        "ACCESS TO RESOURCES — ownership is NOT transferred; access is granted or licensed under agreed "
+        "terms and conditions. In this scenario: the managed laptop provided for the contract term; the "
+        "productivity and collaboration suite licensed per user; access to the self-service portal and "
+        "knowledge base; access to the service desk hotline; identity and access management (Enterprise).",
         "SERVICE ACTIONS — actions performed by the service provider to address a consumer need, "
-        "performed according to an agreement. In this scenario: performing the blood panel, ECG, X-ray, "
-        "ultrasound, cardiac stress test and MRI; interpreting results and producing the health report; "
-        "the complimentary follow-up teleconsultation and specialist consultation; the dedicated care "
-        "coordinator's activities; releasing results within 5 business days.",
+        "performed according to an agreement. In this scenario: staffing the service desk 9am–6pm or "
+        "24x5; acknowledging requests within 4 working hours; imaging and replacing hardware; supporting "
+        "the HR and finance applications; security monitoring; the quarterly or monthly service review; "
+        "the named contact or dedicated service delivery manager's activities.",
         "KEY DISTINCTION the candidate must show: goods transfer ownership; access to resources does NOT "
         "transfer ownership; service actions are performed BY the provider. Award marks where each "
         "category is correctly populated from the scenario, not merely defined.",
     ]),
-    ("Question 4", "A5, A6", "Lab 1 (labs/lab-01) and Lab 3 (labs/lab-03) — four dimensions (Topics 1, 3)", [
+    ("Question 4", "A5, A6", "Lab 3 — Four Dimensions of Service Management (Topic 3)", [
         "A strong answer structures the consideration factors using the FOUR DIMENSIONS of service "
         "management, since a solution must be evaluated holistically.",
-        "ORGANIZATIONS AND PEOPLE — will clinical and administrative staff across six markets adopt it? "
+        "ORGANIZATIONS AND PEOPLE — will service desk, infrastructure and applications staff adopt it? "
         "What training is required? Are the roles, responsibilities and competencies to operate it in "
-        "place? Does it fit MediCare's culture?",
-        "INFORMATION AND TECHNOLOGY — is it compatible with the current architecture (patient portal, "
-        "clinical systems, diagnostic equipment)? Does it raise compliance issues with patient data "
-        "protection policies across six jurisdictions? What information and knowledge does it need? Is "
-        "the data it produces actually the insight the IT Director was asked for — patient outcomes, "
-        "service performance, clinic utilisation?",
-        "PARTNERS AND SUPPLIERS — vendor viability and support model; strategic focus vs resource "
-        "scarcity; subject matter expertise; the dependency and lock-in the relationship creates; "
-        "external constraints on the supplier relationship.",
-        "VALUE STREAMS AND PROCESSES — how will it fit the end-to-end patient journey from booking "
-        "through screening to results release and follow-up? Will it support or disrupt the 5-business-day "
-        "results commitment?",
-        "Also credit: total cost of ownership; scalability across 150+ clinics and six markets; "
-        "regulatory and data-residency compliance; measurable improvement against the stated need.",
+        "place? Does it fit BrightDesk's culture, given users already say it talks about tickets rather "
+        "than productivity?",
+        "INFORMATION AND TECHNOLOGY — is it compatible with the current architecture (ITSM tool, device "
+        "management platform, identity provider, self-service portal)? Will it close the manual "
+        "reconciliation gap between ticket, device record and access rights? Does it meet the "
+        "financial-services clients' audit and retention requirements? Is the data it produces actually "
+        "the insight the IT Director was asked for — user outcomes, service performance, team utilisation?",
+        "PARTNERS AND SUPPLIERS — vendor viability and support model; how it handles the two contracted "
+        "hardware providers whose turnaround BrightDesk does not control; whether it can replace the "
+        "re-keying of supplier emails; the dependency and lock-in the relationship creates.",
+        "VALUE STREAMS AND PROCESSES — how will it fit the end-to-end journey from user contact through "
+        "fulfilment to closure? Will it support or disrupt the 4-working-hour acknowledgement commitment? "
+        "Will it show open work against available capacity, which team leads currently cannot see?",
+        "Also credit: total cost of ownership; scalability across multiple clients with different SLAs; "
+        "data protection and retention compliance; measurable improvement against the stated need.",
         "The strongest answers tie the factors back to the ORIGINAL requirement — better insight into "
-        "patient outcomes, service performance and clinic utilisation — rather than listing generic "
+        "user outcomes, service performance and team utilisation — rather than listing generic "
         "procurement criteria.",
     ]),
-    ("Question 5", "A7, A8", "Lab 1 (labs/lab-01) — assumptions and group presentation (Topic 1)", [
+    ("Question 5", "A7, A8", "Lab 8 — ITIL Capstone and Exam Readiness (all topics)", [
         "ASSUMPTIONS — the candidate should state the assumptions made in reaching their answers. "
-        "Reasonable examples: assumed market conditions (continued economic growth, stable subsidy "
-        "regimes); assumed patient behaviours (willingness to use teleconsultation and the portal); "
-        "assumed technological capability (reliable connectivity in all markets); assumed regulatory "
-        "stability across the six jurisdictions; assumed internal capability and budget to implement.",
+        "Reasonable examples: assumed market conditions (hybrid working persists, stable vendor "
+        "pricing); assumed user behaviours (willingness to use the self-service portal); assumed "
+        "technological capability (the existing tools expose usable integration points); assumed "
+        "client-contract stability at renewal; assumed internal capability and budget to implement.",
         "Any reasonable assumption is acceptable PROVIDED it is explicitly stated and used to justify a "
         "specific answer above — an unstated assumption or one unconnected to the analysis earns no mark.",
         "PRESENTATION — the candidate should describe how they would present the analysis: state the "
@@ -524,7 +560,7 @@ def build_cs_paper():
         # cite the in-class activity this task is drawn from — the answer key
         # cites the same lab, so paper and key must agree
         runs(d, [("Aligned in-class activity: ", True),
-                 ("Lab 1 — Case Study: MediCare Health Group (Topic 1)", False)], after=6)
+                 ("Lab 1 — Service Management, Value Co-Creation, Utility, Warranty", False)], after=6)
         answer_lines(d, nlines)
         if n < len(CS_Q):
             d.add_page_break()
@@ -538,7 +574,7 @@ def build_cs_answers():
     line(d, "The model answers below follow the analysis learners carry out in the in-class activities "
             "(cited per question). Award marks where the candidate identifies the correct ITIL concept "
             "AND applies it to evidence from the scenario — a correct definition with no application to "
-            "MediCare does not earn the mark.", after=8)
+            "BrightDesk does not earn the mark.", after=8)
     line(d, "TRAINER COPY — NOT FOR RELEASE TO LEARNERS.", bold=True, size=11, color=BRAND, after=12)
     _scenario_block(d)
     d.add_page_break()

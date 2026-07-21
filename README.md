@@ -10,14 +10,14 @@ Hands-on ITIL 4 Foundation labs for learners preparing to understand modern IT s
 
 | File | Description |
 | --- | --- |
-| [Learner Guide](LG-ITIL-4-Foundation-Training.md) | Detailed step-by-step guide for the full course. |
+| [Learner Guide](LG-ITIL%204%20Foundation%20Training.md) | Detailed step-by-step guide for the full course. |
 | [Labs Index](labs/README.md) | Quick links to all hands-on labs. |
 | [Tools Guide](labs/tools.md) | Free tools and templates used throughout the labs. |
 
 ## How to Use These Labs
 
 1. Read the learner guide before starting the first lab.
-2. Complete the labs in order because later activities reuse the same service scenario.
+2. Complete the labs in order — every lab works the same **BrightDesk Services** scenario, and the Case Study assessment uses it too, so what you practise here is what you are assessed on.
 3. Focus on ITIL vocabulary and decision logic, not tool configuration.
 4. Keep a glossary of terms that are easy to confuse, such as output, outcome, utility, warranty, incident, problem, workaround, and known error.
 5. Review the checkpoint questions after each lab.
