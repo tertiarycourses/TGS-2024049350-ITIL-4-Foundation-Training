@@ -1,8 +1,11 @@
-# TGS-2024049350 - ITIL 4 Foundation Training
+# ITIL 4 Foundation Training
 
-> Course: ITIL 4 Foundation Training  
-> Course Code: TGS-2024049350  
-> Register here: https://www.tertiarycourses.com.sg/wsq-itil-4-foundation-training.html
+| Course detail | Information |
+|---|---|
+| Course code | `TGS-2024049350` |
+| Programme | WSQ |
+| Duration | 2 days · 16 hours |
+| Registration | [View course details and register](https://www.tertiarycourses.com.sg/wsq-itil-4-foundation-training.html) |
 
 Hands-on ITIL 4 Foundation labs for learners preparing to understand modern IT service management and apply ITIL concepts in realistic service scenarios. The labs cover service management concepts, value co-creation, utility and warranty, the seven guiding principles, the four dimensions, the service value system, the service value chain, continual improvement, incident management, problem management, service request management, service desk, service level management, change enablement, and exam review.
 
@@ -10,7 +13,9 @@ Hands-on ITIL 4 Foundation labs for learners preparing to understand modern IT s
 
 | File | Description |
 | --- | --- |
-| [Learner Guide](LG-ITIL%204%20Foundation%20Training.md) | Detailed step-by-step guide for the full course. |
+| [Slide deck (v12.0)](courseware/ITIL%204%20Foundation%20Training-v12.0.pptx) ([PDF](courseware/ITIL%204%20Foundation%20Training-v12.0.pdf)) | Trainer slide deck for the full course. |
+| [Learner Guide](courseware/LG-ITIL%204%20Foundation%20Training.docx) ([PDF](courseware/LG-ITIL%204%20Foundation%20Training.pdf), [Markdown](LG-ITIL%204%20Foundation%20Training.md)) | Detailed step-by-step guide for the full course. |
+| [Lesson Plan](courseware/LP-ITIL%204%20Foundation%20Training.docx) ([PDF](courseware/LP-ITIL%204%20Foundation%20Training.pdf)) | Day-by-day schedule for the course. |
 | [Labs Index](labs/README.md) | Quick links to all hands-on labs. |
 | [Tools Guide](labs/tools.md) | Free tools and templates used throughout the labs. |
 
@@ -42,6 +47,10 @@ Hands-on ITIL 4 Foundation labs for learners preparing to understand modern IT s
 | [Lab 07](labs/lab-07-service-level-continual-improvement-metrics.md) | Service Level Management, Continual Improvement, Metrics |
 | [Lab 08](labs/lab-08-itil-capstone-exam-readiness.md) | ITIL Capstone and Exam Readiness |
 
+## Public and Private Materials
+
+This public repository carries the current slide deck, Learner Guide, Lesson Plan and labs. Assessment papers, answer keys and source reference material are confidential and are not published here.
+
 ## References
 
 - [ITIL 4 Foundation Study Guide](https://passitexams.com/study-guide/itil-4-foundation/)
@@ -55,3 +64,7 @@ Hands-on ITIL 4 Foundation labs for learners preparing to understand modern IT s
 - diagrams.net
 - Shared whiteboard or paper templates
 - ITIL glossary and practice notes
+
+## Provider
+
+Tertiary Infotech Academy Pte Ltd · UEN 201200696W

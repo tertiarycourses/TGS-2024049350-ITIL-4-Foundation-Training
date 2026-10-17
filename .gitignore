@@ -11,11 +11,7 @@
 # Distribution archives (rebuildable — never pushed to GitHub)
 *.zip
 
-# Generated courseware binaries — large, rebuildable from the content module.
-# The 94MB deck and its PDF are distributed via Google Drive / the LMS, not git.
-courseware/*.pptx
-courseware/*.pdf
-courseware/*.docx
+# Superseded courseware (only the current version is published)
 courseware/archive/
 
 # OS / editor / Python cruft
